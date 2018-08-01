@@ -1,0 +1,27 @@
+<div class="row height-100" *ngIf="books">
+  <div class="col-12">
+    <div class="row mb-3">
+      <div class="col-7  text-left">
+        <h3>List of books</h3>
+      </div>
+      <div class="col-5 text-right">
+        <app-add-book></app-add-book>
+        
+      </div>
+    </div>
+
+  
+    <router-outlet></router-outlet>
+    
+    <div class="row height-100">
+      <div class="col-12">
+        <ul [@listStagger]="books">
+          <li *ngFor="let book of books">
+            <app-book [book]="book"> </app-book>
+           
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

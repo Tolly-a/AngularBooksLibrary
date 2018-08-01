@@ -1,0 +1,63 @@
+<ng-template #addModal let-c="close" let-d="dismiss">
+
+  <div class="modal-header">
+    <h4 class="modal-title">Add new book to list</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('cancel click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]='newBookForm'>
+
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" formControlName="title" class="form-control" id="tilte"/>
+        <!-- [(ngModel)]="title"  -->
+        <span *ngIf="!newBookForm.get('title').valid && newBookForm.get('title').touched" class="error-block">Title required</span>
+        <span *ngIf="newBookForm.get('title').errors?.titleAlreadyExist" class="error-block">This title already exist!</span>
+        <span *ngIf="newBookForm.get('title').errors?.emptyString" class="error-block">Title can not be empty</span>
+      </div>
+
+      <div class="form-group">
+        <label for="authorName">Author name:</label>
+        <input type="text" formControlName="authorName" class="form-control" id="authorName"/>
+        <!-- [(ngModel)]="authorName"  -->
+        <span *ngIf="newBookForm.get('authorName').errors?.emptyString" class="error-block">Title can not be empty</span>
+        <span *ngIf="!newBookForm.get('authorName').valid && newBookForm.get('authorName').touched" class="error-block">Title required</span>
+      </div>
+
+      <div class="form-group">
+        <label for="publishedDate">Published Date:</label>
+        <datepicker-component 
+            (dateUpdated)="onDateChanged($event)" 
+            (dateError)="onDateError($event)"
+            (dateRequiredError)="onDateRequiredError($event)"></datepicker-component>
+      </div>
+
+      <div class="row">
+        <div class="col-12 text-right">
+          <button class="btn btn-sm btn-outline-primary my-btn" (click)="d('cansel click')" ngbTooltip="Cancel">
+            <i class="material-icons"> cancel </i>
+            Cansel
+          </button>
+
+          <button [disabled]="!newBookForm.valid || dateError || notDateError" class="btn btn-sm btn-outline-success my-btn ml-3" (click)="c('add click')"
+            ngbTooltip="Add book to list">
+            <i class="fa fa-check"></i>
+            Add Book
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</ng-template>
+
+
+
+
+<button class="btn btn-sm btn-outline-primary my-btn" (click)="open(content)" ngbTooltip="Add a new book">
+  <i class="fa fa-plus"></i>
+  Add New Book
+</button>

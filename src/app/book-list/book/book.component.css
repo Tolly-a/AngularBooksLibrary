@@ -1,0 +1,75 @@
+.book-section{
+    margin-bottom: 2px;
+    background-color: #fff;
+    padding: 6px 4px;
+}
+
+.edit-section, .delete-section{
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+
+.edit-section a, .delete-section a {
+    display: inline-block;
+    border-radius: 25px;
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    -webkit-transition: color 0.3s; 
+    transition: color 0.4s;
+}
+.edit-section a:hover{
+    background-color:  rgb(185, 227, 247);
+}
+
+.delete-section a:hover{
+    background-color:   #ffcaca;
+} 
+
+.delete-item i{
+    color: #e7a0a0;
+} 
+
+.delete-item i:hover{
+    color: #d65050;
+}
+
+.edit-item i{
+    color: #71b5fd;
+}
+.edit-item i:hover{
+    color: #268dfc;
+}
+.clickable i{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.author-name, .pablished-date {
+    font-size: 12px;
+    color: #777;
+    font-weight: 400;
+}
+
+.author-name i {
+    margin-right: 6px;
+    color: #a9a9a9;
+}
+
+.pablished-date i{
+    vertical-align: sub;
+    font-size: 16px;
+    margin-right: 2px;
+    color: #a9a9a9;
+}
+
+.book-title{
+    color: #666;
+    font-weight: 400;
+}

@@ -1,0 +1,32 @@
+<div class="row book-section">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-1 edit-section">
+        <a class="clickable edit-item" (click)="openEditBook(book, 'editModal')">
+          <i class="material-icons"> edit </i>
+        </a>
+      </div>
+
+      <div class="col-10 pl-2 pr-2">
+        <h5 class="text-left mb-0 book-title">{{book.title | titlecase | cleanText }}</h5>
+        <div class="row">
+          <div class="col-7 text-left">
+            <span class="author-name">
+              <i class="fa fa-user"></i>{{book.authorName}}</span>
+          </div>
+          <div class="col-5 text-right">
+            <span class="pablished-date">
+              <i class="material-icons"> date_range </i> {{book.publishedDate | dateMoment}}</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-1 delete-section">
+        <a class="clickable delete-item" (click)="openDeleteModal(book, 'deleteBook')">
+          <i class="material-icons"> delete_forever </i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

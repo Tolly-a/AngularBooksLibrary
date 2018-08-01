@@ -1,0 +1,26 @@
+<ng-template #deleteModal let-c="close" let-d="dismiss">
+  
+  <div class="modal-body">
+      <h5 style="color: rgb(245, 107, 107);">
+        Are you sure that you want to delete the book?
+      </h5>
+  </div>
+
+  <div class="modal-footer">
+    <div class="row">
+      <div class="col-12 text-right">
+       
+        <button class="btn btn-sm btn-outline-primary my-btn" (click)="d('cancel click')">
+          <i class="material-icons"> cancel </i>
+          Cansel
+        </button>
+
+        <button class="btn btn-sm btn-outline-danger my-btn ml-3" (click)="c('delete click')">
+            <i class="material-icons"> delete_forever </i>
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>

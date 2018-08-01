@@ -1,0 +1,18 @@
+<form [formGroup]='dateForm'>
+  <div class="input-group">
+    <input class="form-control" 
+    [placeholder]="publishedDate | dateMoment" type="text" 
+    id="publishedDate" 
+    formControlName='newDate'
+    (ngModelChange)="onSelectDate($event)" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" />
+
+ 
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button" style="height: 40px; border: 1px solid #ced4da;">
+        <i class="material-icons" style="cursor: pointer;">date_range </i>
+      </button>
+    </div>
+  </div>
+  <span *ngIf="dateForm.get('newDate').errors?.afterToday" class="error-block"> Date can not be later today</span>
+  <span *ngIf="dateForm.get('newDate').errors?.incorrectDateFormat" class="error-block">Incorrect Date Format</span>
+</form>
